@@ -1,5 +1,7 @@
 package co.com.demoqa.stepsdefinitions;
 
+import com.co.demoqa.models.Credentials;
+import com.co.demoqa.tasks.CompleteForm;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -10,6 +12,8 @@ import net.serenitybdd.screenplay.actors.Cast;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.WebDriver;
+
+import java.util.List;
 
 public class FormStepsDefinitions {
 
@@ -30,8 +34,10 @@ public class FormStepsDefinitions {
     }
 
     @When("^the user enter the credential$")
-    public void theUserEnterTheCredential() {
-
+    public void theUserEnterTheCredential(List<Credentials> credentialsList) {
+        Credentials credentials;
+        credentials = credentialsList.get(0);
+        OnStage.theActorInTheSpotlight().attemptsTo(CompleteForm.enterForm(credentials));
     }
 
     @Then("^the user can see the page wiht the register$")
