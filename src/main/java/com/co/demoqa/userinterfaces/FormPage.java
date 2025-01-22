@@ -23,16 +23,15 @@ public class FormPage {
             .locatedBy("//input[@id=\"userEmail\"]");
 
     public static final Target IMPUTGENDER = Target.the("gender")
-            .locatedBy("//input[@id=\"gender-radio-1\"]");
+            .locatedBy("//label[@for=\"gender-radio-1\"]");
 
     public static final Target INPUTHOBBIES = Target.the("hobbies")
-            .locatedBy("//input[@id=\"hobbies-checkbox-1\"]");
+            .locatedBy("//label[@for=\"hobbies-checkbox-1\"]");
 
     public static  final Target TXTNUMBER = Target.the("namber")
             .locatedBy("//input[@id=\"userNumber\"]");
 
-    public static  final Target TXTLANGUAGE = Target.the("language")
-            .locatedBy("//*[@ID=\"subjectsContainer\"]");
+    //public static  final Target TXTLANGUAGE = Target.the("language") .locatedBy("//*[@id=\"subjectsContainer\"]/div/div[1]");
 
     public static  final Target TXTADRESS = Target.the("first name")
             .locatedBy("//textarea[@id=\"currentAddress\"]");
@@ -41,6 +40,7 @@ public class FormPage {
     public static  final Target BTNSUBMIT = Target.the("first name")
             .locatedBy("//button[@id=\"submit\"]");
 
-
+    public static  final Target COMPARETEXT = Target.the("text")
+            .locatedBy("//*[@id=\"example-modal-sizes-title-lg\"]");
 
 }

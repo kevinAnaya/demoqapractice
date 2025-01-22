@@ -1,5 +1,6 @@
 package com.co.demoqa.tasks;
 
+import com.co.demoqa.interactions.Wait;
 import com.co.demoqa.models.Credentials;
 import com.co.demoqa.userinterfaces.FormPage;
 import net.serenitybdd.screenplay.Actor;
@@ -7,6 +8,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.actions.Scroll;
 import org.openqa.selenium.Keys;
 
 public class CompleteForm implements Task {
@@ -29,10 +31,11 @@ public class CompleteForm implements Task {
                 Enter.theValue(credentials.getEmail()).into(FormPage.TXTEMAIL),
                 Click.on(FormPage.IMPUTGENDER),
                 Enter.theValue(credentials.getMobile()).into(FormPage.TXTNUMBER),
-                Enter.theValue(credentials.getSubjects()).into(FormPage.TXTLANGUAGE).thenHit(Keys.ENTER),
+                Scroll.to(FormPage.INPUTHOBBIES),
                 Click.on(FormPage.INPUTHOBBIES),
                 Enter.theValue(credentials.getAddress()).into(FormPage.TXTADRESS),
-                Click.on(FormPage.BTNSUBMIT)
+                Click.on(FormPage.BTNSUBMIT),
+                Wait.waitOn()
         );
     }
 
